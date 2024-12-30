@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezilen Yerler</title>
+    <link rel="stylesheet" href="/static/profile.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <button class="login-btn" onclick="window.location.href='{{ url_for('profile') }}'">Geri</button>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Tamamlanan Yerler</h1> <!-- Başlık üstte -->
+        <div class="tasks">
+            {% if tasks %}
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task['gorev'] }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Henüz tamamlanmış bir görev yok.</p>
+    {% endif %}
+        
+
+    <footer>
+        <p>&copy; 2024 Gezi Planlayıcısı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="static/script.js"></script>
+   
+</body>
+</html>

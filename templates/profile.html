@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="/static/profile.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <button class="login-btn" onclick="window.location.href='{{ url_for('logout') }}'">Çıkış</button>
+        </div>
+    </header>
+    
+    <div class="main-content">
+        <div class="nav-menu">
+            <button class="nav-button" onclick="window.location.href='{{ url_for('get_profile_data') }}'">Profil Bilgileri </button>
+            <button class="nav-button" onclick="window.location.href='{{ url_for('get_hedef') }}'">Gezeceğim Yerler</button>
+            <button class="nav-button" onclick="window.location.href='{{ url_for('completed_tasks') }}'">Gezdiğim Yerler</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Gezi Planlayıcısı. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script src="static/script.js"></script>
+   
+</body>
+</html>

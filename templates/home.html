@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa</title>
+    <link rel="stylesheet" href="/static/mainpage.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <button class="login-btn" onclick="window.location.href='{{ url_for('profile') }}'">Profil</button>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h1>Gezmek İçin Öneriler</h1>
+        <div class="suggestions">
+            {% for place in places %}
+            <div class="suggestion">
+                <h2>{{ place['name'] }}</h2>
+                <p>{{ place['description'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <h2>Gezi Planınızı Oluşturun</h2>
+        <form method="POST">
+            <select id="country" name="country">
+                <option value="">Ülke Seçin</option>
+                {% for country in countries %}
+                    <option value="{{ country['country_ID'] }}">{{ country['country_Name'] }}</option>
+                {% endfor %}
+            </select>
+            
+            <!-- Şehir Dropdown -->
+            <select id="city" name="city">
+                <option value="">Şehir Seçin</option>
+                {% for city in cities %}
+                    <option value="{{ city['city_ID'] }}" data-country="{{ city['country_ID'] }}">
+                        {{ city['city_Name'] }}
+                    </option>
+                {% endfor %}
+            </select>
+            
+
+            <button type="submit">Plan Oluştur</button>
+
+            <div class="map-section">
+                <h2>Harita</h2>
+                <!-- Google Maps Embed API ile harita eklenebilir -->
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=API_KEY&q=Paris" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Gezi Planlayıcısı. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

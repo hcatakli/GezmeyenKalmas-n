@@ -1,0 +1,78 @@
+/* Genel düzen */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* Arka plan rengi */
+}
+
+/* Navbar */
+header {
+    background-color: #333; /* Navbar arka plan rengi */
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Çıkış butonunu sağa hizalar */
+}
+
+.login-btn {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #1abc9c;
+}
+
+/* Ana içerik */
+.main-content {
+    flex: 1; /* Ana içeriği esnek yapar */
+    display: flex;
+    justify-content: center; /* Yatayda ortalar */
+    align-items: center; /* Dikeyde ortalar */
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column; /* Butonları alt alta dizer */
+    align-items: stretch;
+    width: 320px; /* Buton genişliği */
+}
+
+.nav-button {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #1abc9c;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
