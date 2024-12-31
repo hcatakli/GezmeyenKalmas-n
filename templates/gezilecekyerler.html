@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="navbar">
-            <button class="login-btn" onclick="window.location.href='{{ url_for('profile') }}'">Geri</button>
+            <button id="gezecek-geribtn" class="login-btn" onclick="window.location.href='/profile';">Geri</button>
         </div>
     </header>
     <div class="container">
@@ -18,7 +18,7 @@
             <form action="/add_task" method="POST">
                 <label for="task">Görev Adı:</label>
                 <input type="text" id="task" name="task" required>
-                <button type="submit">Görev Ekle</button>
+                <button id="hedefekle-btn" type="submit">Görev Ekle</button>
             </form>
         </div>
         <div class="right-panel">
@@ -26,8 +26,8 @@
             <ul>
                 {% for task in tasks %}
                 <li>
-                    <input type="checkbox" id="task-{{ task['hedef_ID'] }}" onclick="saveCheckedTasks({{ task['hedef_ID'] }})">
-                    <label for="task-{{ task['hedef_ID'] }}">{{ task['hedef'] }}</label>
+                    <input name="chechbox" type="checkbox" id="task-{{ task['hedef_ID'] }}" onclick="saveCheckedTasks({{ task['hedef_ID'] }})">
+                    <label name="hedef" for="task-{{ task['hedef_ID'] }}">{{ task['hedef'] }}</label>
                 </li>
                 {% endfor %}
             </ul>

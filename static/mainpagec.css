@@ -152,7 +152,7 @@ select {
 .container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
 
 
@@ -168,7 +168,9 @@ select {
 }
 
 iframe {
-    width: 100%;
-    height: 100%;
+    display: block;
+    width: 100%; /* Sayfanın tamamını kaplar */
+    height: 350px; /* Sabit bir yükseklik */
+    border: none; /* Çerçeve kaldırılır */
+    overflow: hidden; /* Kaydırma çubuklarını engeller */
 }
-

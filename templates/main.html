@@ -9,8 +9,8 @@
 <body>
     <header>
         <div class="navbar">
-            <button class="left-buttons" onclick="window.location.href='{{ url_for('forum') }}'">FORUM</button>
-            <button class="right-buttons" onclick="window.location.href='{{ url_for('login') }}'">Giriş Yap</button>
+            <button id="main-forum" class="left-buttons" onclick="window.location.href='/forum';">FORUM</button>
+            <button id="main-login" class="right-buttons" onclick="window.location.href='/login';">Giriş Yap</button>
         </div>
     </header>
     
@@ -26,44 +26,14 @@
         </div>
     </div>
 
-    <div class="container">
-        <h2>Gezi Planınızı Oluşturun</h2>
-        <form method="POST">
-            <select id="country" name="country">
-                <option value="">Ülke Seçin</option>
-                {% for country in countries %}
-                    <option value="{{ country['country_ID'] }}">{{ country['country_Name'] }}</option>
-                {% endfor %}
-            </select>
-            
-            <!-- Şehir Dropdown -->
-            <select id="city" name="city">
-                <option value="">Şehir Seçin</option>
-                {% for city in cities %}
-                    <option value="{{ city['city_ID'] }}" data-country="{{ city['country_ID'] }}">
-                        {{ city['city_Name'] }}
-                    </option>
-                {% endfor %}
-            </select>
-            
-
-            <button type="submit">Plan Oluştur</button>
-
-            <div class="map-section">
-                <h2>Harita</h2>
-                <!-- Google Maps Embed API ile harita eklenebilir -->
-                <iframe src="https://www.google.com/maps/embed/v1/place?key=API_KEY&q=Paris" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </form>
+    <iframe   name="iframe"  width="150" height="300" src="{{ url_for('geziplan') }}"></iframe>
 
     
-    </div>
-
     <footer>
         <p>&copy; 2024 Gezi Planlayıcısı. Tüm hakları saklıdır.</p>
     </footer>
 
-    <script src="static/script.js"></script>
+    <script  src="static/script.js"></script>
    
 </body>
 </html>

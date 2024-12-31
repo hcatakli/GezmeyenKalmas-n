@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa</title>
+    <link rel="stylesheet" href="/static/mainpagec.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Gezi Planınızı Oluşturun</h2>
+        <form method="POST">
+            <select id="country" name="country">
+                <option value="">Ülke Seçin</option>
+                <option id="ulkesec" value="">İtalya</option>
+                {% for country in countries %}
+                    <option value="{{ country['country_ID'] }}">{{ country['country_Name'] }}</option>
+                {% endfor %}
+            </select>
+            
+            <!-- Şehir Dropdown -->
+            <select id="city" name="city">
+                <option value="">Şehir Seçin</option>
+                <option id="sehirsec" value="">Venedik</option>
+                {% for city in cities %}
+                    <option value="{{ city['city_ID'] }}" data-country="{{ city['country_ID'] }}">
+                        {{ city['city_Name'] }}
+                    </option>
+                {% endfor %}
+            </select>
+            
+    
+            <button id="makeplan-btn" type="submit">Plan Oluştur</button>
+    
+           
+        </form>
+    
+    
+    </div>
+
+    <script  src="static/script.js"></script>
+   
+</body>
+</html>
+
+
+

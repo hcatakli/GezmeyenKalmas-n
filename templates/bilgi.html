@@ -9,15 +9,15 @@
 <body>
     <header>
         <h1>Profil Bilgileri</h1>
+        <button id="prof-geri" class="login-btn" onclick="window.location.href='/profile';">Geri</button>
     </header>
     
     <div class="main-content">
         <div class="nav-menu">
-            <p><strong>Mail:</strong> {{ users['username'] }}</p>
-            <p><strong>Ad:</strong> {{ users['firstName'] }}</p>
-            <p><strong>Soyad:</strong> {{ users['lastName'] }}</p>
-            <p><strong>Doğum Tarihi:</strong> {{ users['birthDate'] }}</p>
-            <button class="login-btn" onclick="window.location.href='{{ url_for('home') }}'">Ana Sayfaya Dön</button>
+            <p name="mail"><strong>Mail:</strong> {{ users['username'] }}</p>
+            <p name="name"> <strong>Ad:</strong> {{ users['firstName'] }}</p>
+            <p name="lname"><strong>Soyad:</strong> {{ users['lastName'] }}</p>
+            <p name="tarih"><strong>Doğum Tarihi:</strong> {{ users['birthDate'] }}</p>
         </div>
     </div>
 

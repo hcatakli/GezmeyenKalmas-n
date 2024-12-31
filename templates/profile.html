@@ -9,15 +9,15 @@
 <body>
     <header>
         <div class="navbar">
-            <button class="login-btn" onclick="window.location.href='{{ url_for('logout') }}'">Çıkış</button>
+            <button id="profcikis-btn" class="login-btn" onclick="window.location.href='/logout';">Çıkış</button>
         </div>
     </header>
     
     <div class="main-content">
         <div class="nav-menu">
-            <button class="nav-button" onclick="window.location.href='{{ url_for('get_profile_data') }}'">Profil Bilgileri </button>
-            <button class="nav-button" onclick="window.location.href='{{ url_for('get_hedef') }}'">Gezeceğim Yerler</button>
-            <button class="nav-button" onclick="window.location.href='{{ url_for('completed_tasks') }}'">Gezdiğim Yerler</button>
+            <button id="profbilgi-btn" class="nav-button" onclick="window.location.href='/get_profile_data';">Profil Bilgileri </button>
+            <button id="profgezecek-btn" class="nav-button" onclick="window.location.href='/get_hedef';">Gezeceğim Yerler</button>
+            <button id="profgezdi-btn" class="nav-button" onclick="window.location.href='/completed_tasks';">Gezdiğim Yerler</button>
         </div>
     </div>
 

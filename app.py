@@ -169,5 +169,16 @@ def logout():
     return redirect('/')
 
 
+
+@app.route('/geziplan')
+def geziplan():
+    conn = get_db_connection()
+    countries = conn.execute('SELECT * FROM country').fetchall()
+    cities = conn.execute('SELECT * FROM city').fetchall()
+
+    return render_template('geziplan.html',countries=countries, cities=cities)
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
