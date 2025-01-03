@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 import sqlite3
 import random
-import folium
 from datetime import datetime
 
 app = Flask(__name__)
@@ -43,8 +42,10 @@ def login():
         
         if user:
             session['username'] = username
+            conn.close()
             return redirect(url_for('home'))
         else:
+            conn.close()
             return render_template("login.html", error="Kullanıcı adı veya şifre hatalı!")
     return render_template("login.html")
 
