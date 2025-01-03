@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.secret_key = "hafisa_53"
 
 def get_db_connection():
-    conn = sqlite3.connect('users.db')
+    conn = sqlite3.connect('file:users.db?mode=rw', uri=True)
+
     conn.row_factory = sqlite3.Row     # Veritabanı dosyasının adı
     return conn
 
