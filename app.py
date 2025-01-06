@@ -52,13 +52,18 @@ def login():
 
 @app.route("/home")
 def home():
-    conn = get_db_connection()  # Veritabanına bağlan
-    places = conn.execute('SELECT * FROM places').fetchall()  # Veritabanından tüm yerleri al
-    conn.close()
+    conn = get_db_connection()
 
-    # Rastgele 3 yer seçme
-    random_places = random.sample(places, 3)
-    return render_template('home.html', places=random_places)
+    # Rastgele gezilecek yerleri çek
+    places = conn.execute('SELECT * FROM places').fetchall()
+    random_places = random.sample(places, 3)  # 3 rastgele yer seç
+
+    # Ülke ve şehir bilgilerini çek
+    countries = conn.execute('SELECT * FROM country').fetchall()
+    cities = conn.execute('SELECT * FROM city').fetchall()
+
+    conn.close()
+    return render_template('home.html', places=random_places, countries=countries, cities=cities)
 
 
 @app.route("/profile")

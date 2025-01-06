@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="/static/mainpagec.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Gezi Planınızı Oluşturun</h2>
-        <form method="POST">
+    <div class="container" id="container">
+        <h2 id="plan-header">Gezi Planınızı Oluşturun</h2>
+        <form method="POST" id="plan-form">
             <select id="country" name="country">
                 <option value="">Ülke Seçin</option>
                 <option id="ulkesec" value="">İtalya</option>
                 {% for country in countries %}
-                    <option value="{{ country['country_ID'] }}">{{ country['country_Name'] }}</option>
+                    <option id="country-{{ country['country_ID'] }}" value="{{ country['country_ID'] }}">{{ country['country_Name'] }}</option>
                 {% endfor %}
             </select>
             
@@ -23,25 +23,43 @@
                 <option value="">Şehir Seçin</option>
                 <option id="sehirsec" value="">Venedik</option>
                 {% for city in cities %}
-                    <option value="{{ city['city_ID'] }}" data-country="{{ city['country_ID'] }}">
+                    <option id="city-{{ city['city_ID'] }}" value="{{ city['city_ID'] }}" data-country="{{ city['country_ID'] }}">
                         {{ city['city_Name'] }}
                     </option>
                 {% endfor %}
             </select>
-            
+            <!-- Gezi Türü Radio Butonları -->
+            <fieldset id="travel-type-fieldset">
+                <legend id="travel-type-legend">Gezi Türü</legend>
+                <label id="travel-type-nature-label">
+                    <input type="radio" id="travel-type-nature" name="travel_type" value="nature"> Doğa
+                </label>
+                <label id="travel-type-cultural-label">
+                    <input type="radio" id="travel-type-cultural" name="travel_type" value="cultural"> Kültürel
+                </label>
+                <label id="travel-type-adventure-label">
+                    <input type="radio" id="travel-type-adventure" name="travel_type" value="adventure"> Macera
+                </label>
+            </fieldset>
+
+            <!-- Bütçe Radio Butonları -->
+            <fieldset id="budget-fieldset">
+                <legend id="budget-legend">Bütçe</legend>
+                <label id="budget-low-label">
+                    <input type="radio" id="budget-low" name="budget" value="low"> Düşük
+                </label>
+                <label id="budget-medium-label">
+                    <input type="radio" id="budget-medium" name="budget" value="medium"> Orta
+                </label>
+                <label id="budget-high-label">
+                    <input type="radio" id="budget-high" name="budget" value="high"> Yüksek
+                </label>
+            </fieldset>
     
             <button id="makeplan-btn" type="submit">Plan Oluştur</button>
-    
-           
         </form>
-    
-    
     </div>
 
-    <script  src="static/script.js"></script>
-   
+    <script src="static/script.js" id="main-script"></script>
 </body>
 </html>
-
-
-
